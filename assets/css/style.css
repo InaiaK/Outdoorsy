@@ -1,3 +1,4 @@
+/* nav bar - Foundation */
 .topbar-responsive {
     background: #192A51;
     padding: 1rem 1.5rem;
@@ -133,16 +134,49 @@
     }
 }
 
-.container {
-    background: url(..//img/showcase3.jpg) no-repeat 0 -400px;
-    color : white;
+/*  search bar container  */
+section {
+    background: url(../img/denver1.webp) no-repeat 0 -400px url(../img/hockey1.jpeg) no-repeat 0 -400px url(../img/festival4.jpeg)no-repeat 0 -400px url(../img/standup.png)no-repeat 0 -400px url(../img/theater.jpeg)no-repeat 0 -400px;
+    color: white;
     width: 100%;
     height: 100%;
     padding: 15%;
     min-height: 400px;
     text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
 }
 
+.sidebar{
+    grid-area: sidebar;
+}
+.results-showcases {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-areas:
+    "header  header  header"
+    "sidebar content content"
+    "footer  footer  footer";
+    background-color: #fff;
+    color: #444;
+  }
+/* .container-header {
+    font-size: 16vw;
+    color: black ;
+    background: white;
+    padding: 10px 40px;
+    mix-blend-mode: screen;
+    font-family: 'Poppins',sans-serif;
+} */
+
+
+
+
+/* search bar  */
 .input-group-rounded .input-group-field {
     border-radius: 5000px 0 0 5000px;
     padding-left: 1rem;
@@ -153,9 +187,43 @@
     font-size: 0.8rem;
 }
 
-footer{
+/* weather card  */
+/* .weather-container {
+    border: 8px solid black;
+    width: 100%;
+} */
+
+
+/* search results container */
+
+
+/* footer */
+footer {
     background: #192A51;
     padding: 1rem 1.5rem;
     color: #F6F7EB;
     text-align: center;
+    height: 100%;
+}
+
+
+/* @media  */
+@media(max-width:768px) {
+
+    header #branding,
+    header nav,
+    header nav li {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    header {
+        padding-bottom: 20px;
+    }
+}
+
+img {
+    height: auto;
+    max-width: 100%;
 }
