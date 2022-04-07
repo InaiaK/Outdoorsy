@@ -12,9 +12,9 @@ var formSubmitCity = function (event) {
         // nameEl.textContent = " ";
         inputEl.value = " ";
         console.log("cityName")
-        location.replace("./results.html")
+        location.replace("./results.html") // It is going to display the weather on the second page html
     } else {
-        alert("Please enter a city name");
+        alert("Please enter a city name"); // If user don't type a city name. 
         console.log("Please Enter cityname")
     }
 };
