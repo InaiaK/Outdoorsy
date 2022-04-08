@@ -1,13 +1,13 @@
 const apiKey = 'apikey=UTIojKvGOntZW05jT4VTYnAMcfn8u3OG';
-const eventTypes = {
-    'Sports': "KZFzniwnSyZfZ7v7nE",
-    'Music': "KZFzniwnSyZfZ7v7nJ",
-    'Arts & Theatre': "KZFzniwnSyZfZ7v7na",
-    'Film': "KZFzniwnSyZfZ7v7nn",
-    'Miscellaneous': "KZFzniwnSyZfZ7v7n1"
-}
+const eventTypes = [
+    'Sports',
+    'Music',
+    'Arts & Theatre',
+    'Film',
+    'Miscellaneous'
+];
 
-var searchEl = document.getElementById('search');
+var searchEl = document.getElementById('searchbar');
 var resultsEl = document.getElementById('results');
 
 searchEl.addEventListener("keyup", function (event) {
@@ -22,15 +22,14 @@ searchEl.addEventListener("keyup", function (event) {
 var getEvents = function (city, segmentID = '', radius = '&radius=30') {
     city = city.toLowerCase();
     if (segmentID) {
-        segmentID = `&classificationID=${segmentID}`;
+        segmentID = `&classificationName=${segmentName}`;
     }
-    var requestURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=${city}${segmentID}${radius}&${apiKey}`;
+    var requestURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=${city}${segmentName}${radius}&${apiKey}`;
     fetch(requestURL)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            // console.log(data);
             resultsEl.innerHTML="";
             var eventList = data._embedded.events;
             for (i = 0; i < eventList.length; i++) {
@@ -47,28 +46,30 @@ var getEvents = function (city, segmentID = '', radius = '&radius=30') {
                     var eventInfo = '';
                 }
 
-                var eventDiv = document.createElement('div');
+                console.log('event:',event,'name',name,'dateTime',dateTime,'imgURL', imgURL, 'eventURL', eventURL,'venueName', venueName,'eventInfo', eventInfo);
 
-                var titleHeader = document.createElement('h1');
-                titleHeader.innerText = name;
+                // var eventDiv = document.createElement('div');
 
-                var infoP = document.createElement('p');
-                infoP.innerText = eventInfo;
+                // var titleHeader = document.createElement('h1');
+                // titleHeader.innerText = name;
 
-                var dateP = document.createElement('p');
-                dateP.innerText = dateTime;
+                // var infoP = document.createElement('p');
+                // infoP.innerText = eventInfo;
 
-                var venueP = document.createElement('p');
-                venueP.innerText = venueName;
+                // var dateP = document.createElement('p');
+                // dateP.innerText = dateTime;
 
-                var img = document.createElement('img');
-                img.setAttribute('src', imgURL);
+                // var venueP = document.createElement('p');
+                // venueP.innerText = venueName;
 
-                var URLp = document.createElement('p');
-                URLp.innerText = eventURL;
+                // var img = document.createElement('img');
+                // img.setAttribute('src', imgURL);
 
-                eventDiv.append(titleHeader, infoP, dateP, img, URLp, venueP);
-                resultsEl.append(eventDiv);
+                // var URLp = document.createElement('p');
+                // URLp.innerText = eventURL;
+
+                // eventDiv.append(titleHeader, infoP, dateP, img, URLp, venueP);
+                // resultsEl.append(eventDiv);
             }
         });
 }
