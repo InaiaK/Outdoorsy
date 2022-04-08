@@ -27,7 +27,7 @@ var getEvents = function (city, segmentName = '', radius = '&radius=30') {
                 var event = eventList[i];
                 var name = event.name;
                 var date = event.dates.start.localDate;
-                date = moment(date, "MM-DD-YYYY");
+                date = moment(date, "YYYY-MM-DD").format('MMMM Do, YYYY');
                 var imgURL = event.images[0].url;
                 var eventURL = event.url;
                 var venueName = event._embedded.venues[0].name;
