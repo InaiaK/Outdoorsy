@@ -1,4 +1,4 @@
-const apiKey = 'apikey=UTIojKvGOntZW05jT4VTYnAMcfn8u3OG';
+const apiKeyTM = 'apikey=UTIojKvGOntZW05jT4VTYnAMcfn8u3OG';
 const eventTypes = [
     'Sports',
     'Music',
@@ -7,24 +7,14 @@ const eventTypes = [
     'Miscellaneous'
 ];
 
-var searchEl = document.getElementById('searchbar');
-var resultsEl = document.getElementById('results');
+var resultsEl = document.getElementById('result-content');
 
-searchEl.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-        // Cancel the default action, if needed
-        event.preventDefault();
-        // Trigger the button element with a click
-        getEvents(event.target.value);
-    }
-});
-
-var getEvents = function (city, segmentID = '', radius = '&radius=30') {
+var getEvents = function (city, segmentName = '', radius = '&radius=30') {
     city = city.toLowerCase();
-    if (segmentID) {
-        segmentID = `&classificationName=${segmentName}`;
+    if (segmentName) {
+        segmentName = `&classificationName=${segmentName}`;
     }
-    var requestURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=${city}${segmentName}${radius}&${apiKey}`;
+    var requestURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=${city}${segmentName}${radius}&${apiKeyTM}`;
     fetch(requestURL)
         .then(function (response) {
             return response.json();
@@ -48,28 +38,36 @@ var getEvents = function (city, segmentID = '', radius = '&radius=30') {
 
                 console.log('event:',event,'name',name,'dateTime',dateTime,'imgURL', imgURL, 'eventURL', eventURL,'venueName', venueName,'eventInfo', eventInfo);
 
-                // var eventDiv = document.createElement('div');
+                var eventDiv = document.createElement('div');
 
-                // var titleHeader = document.createElement('h1');
-                // titleHeader.innerText = name;
+                var titleHeader = document.createElement('h1');
+                titleHeader.innerText = name;
 
-                // var infoP = document.createElement('p');
-                // infoP.innerText = eventInfo;
+                var infoP = document.createElement('p');
+                infoP.innerText = eventInfo;
 
-                // var dateP = document.createElement('p');
-                // dateP.innerText = dateTime;
+                var dateP = document.createElement('p');
+                dateP.innerText = dateTime;
 
-                // var venueP = document.createElement('p');
-                // venueP.innerText = venueName;
+                var venueP = document.createElement('p');
+                venueP.innerText = venueName;
 
-                // var img = document.createElement('img');
-                // img.setAttribute('src', imgURL);
+                var img = document.createElement('img');
+                img.setAttribute('src', imgURL);
 
-                // var URLp = document.createElement('p');
-                // URLp.innerText = eventURL;
+                var URLa = document.createElement('a');
+                URLa.innerText = 'Get tickets now!';
+                URLa.setAttribute('src',eventURL)
 
-                // eventDiv.append(titleHeader, infoP, dateP, img, URLp, venueP);
-                // resultsEl.append(eventDiv);
+                eventDiv.append(titleHeader, infoP, dateP, img, URLa, venueP);
+                resultsEl.append(eventDiv);
             }
-        });
+        }).catch((error) => {
+            console.error('Error:', error);
+          });
 }
+
+var searchParams = window.location.search;
+const urlParams = new URLSearchParams(searchParams);
+var cityQ = urlParams.get('q');
+getEvents(cityQ);

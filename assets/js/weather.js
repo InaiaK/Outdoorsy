@@ -1,4 +1,3 @@
-
 var nameEl = document.getElementById("city-name");
 var currentTempEl = document.getElementById("temperature");
 
@@ -13,14 +12,14 @@ getapiInfo(cityName);
 
 var getData = function (key) {
 
-    var apiUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0`
+    var apiUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0`
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
-                response.json()
+                return response.json();
             }
         }).then(function (data) {
-            console.log(apiUrl);
+            console.log(data);
         })
 }
 searchEl.addEventListener("click", formSubmitCity);
@@ -51,4 +50,4 @@ function getapiInfo(city) {
             alert('Error: Please enter a City');
         });
 
-
+}

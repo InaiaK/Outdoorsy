@@ -39,13 +39,13 @@
     <!-- container for search bar used from foundation -->
     <section class="showcase">
       <div class="container">
-      
+
         <h1 class="container-header">Whats the next Event?</h1>
         <p>Did you hear that? They've shut down the main reactor. We'll be destroyed for sure. This is madness!
           We're doomed!</p>
         <form id="search-form" class="form w-100">
           <div class="input-group input-group-rounded">
-            <input class="input-group-field"  id="search-input"  type="text">
+            <input class="input-group-field" id="search-input" type="text">
             <div class="input-group-button">
               <!--Changed name for button besides input-->
               <button type="submit" class="button secondary" value="Search" class="form-input w-100"> Search</button>
@@ -54,14 +54,14 @@
         </form>
     </section>
     <script>
-      function changeBg(){
+      function changeBg() {
         const images = [
-          'url(./assets/img/denver1.webp)', 
+          'url(./assets/img/denver1.webp)',
           'url(./assets/img/hockey1.jpeg)',
           'url(./assets/img/festival1.jpeg)',
           'url(./assets/img/theater.jpeg)',
           'url(./assets/img/showcase3.jpg)'
-          
+
         ]
         const section = document.querySelector('section')
         const bg = images[Math.floor(Math.random() * images.length)];
@@ -74,12 +74,16 @@
       <p>EventListner , Copyright &copy;, 2022</p>
     </footer> -->
 
-<!-- Linked all JS -->
-    <script src="./assets/js/getCity.js"></script>
-    <script src="./assets/js/weather.js"></script>
-  
-<!-- Compressed JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> 
+    <!-- Linked all JS -->
+    <script src="./assets/js/script.js"></script>
+    <!-- <script src="./assets/js/getCity.js"></script> -->
+    <!-- <script src="./assets/js/weather.js"></script> -->
+
+    <!-- Compressed JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous">
+    </script>
 
 </body>
 
