@@ -9,12 +9,12 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/jass.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 
 </head>
 
-<body>
+<body> 
+    <div class="wrapper">
     <header>
         <!-- nav bar used from foundation -->
         <nav class="top-bar topbar-responsive">
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </nav>
-
+    </header>
         <section class="showcase">
             <div class="container">
                 <h1 class="text-primary">EventListner Search </h1>
@@ -61,21 +61,26 @@
             <span id="weather-result"></span>
         </section>
 
-        <section>
-            <div class="col-12 col-md-9 p-3 text-light">
+
+        <!-- weather api  -->
+        <!-- search results -->
+        <aside class="results">
+            <div class="results-container">
                 <h2>Showing results for <span id="result-text"></span></h2>
                 <div id="result-content"></div>
             </div>
             </div>
-        </section>
+        </aside>
 
         <footer>
             <p>EventListner , Copyright &copy;, 2022</p>
         </footer>
+
 <!-- Linked all JS -->
         <script src="./assets/js/getCity.js"></script>
         <script src="assets/js/weather.js"></script>    
-        
+        <script src="./assets/js/search.js"></script>
+
 </body>
 
 </html>

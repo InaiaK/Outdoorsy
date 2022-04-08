@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EventListner | Welcome</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/css/uikit.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
@@ -15,7 +16,7 @@
 <body>
   <header>
     <!-- nav bar used from foundation -->
-    <nav class="top-bar topbar-responsive">
+    <!-- <nav class="top-bar topbar-responsive">
       <div class="top-bar-title">
         <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
           <button class="menu-icon" type="button" data-toggle></button>
@@ -34,10 +35,11 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
     <!-- container for search bar used from foundation -->
     <section class="showcase">
       <div class="container">
+      
         <h1 class="container-header">Whats the next Event?</h1>
         <p>Did you hear that? They've shut down the main reactor. We'll be destroyed for sure. This is madness!
           We're doomed!</p>
@@ -51,14 +53,34 @@
           </div>
         </form>
     </section>
-    <footer>
+    <script>
+      function changeBg(){
+        const images = [
+          'url(./assets/img/denver1.webp)', 
+          'url(./assets/img/hockey1.jpeg)',
+          'url(./assets/img/festival1.jpeg)',
+          'url(./assets/img/theater.jpeg)',
+          'url(./assets/img/showcase3.jpg)'
+          
+        ]
+        const section = document.querySelector('section')
+        const bg = images[Math.floor(Math.random() * images.length)];
+        section.style.backgroundImage = bg;
+      }
+
+      setInterval(changeBg, 5000)
+    </script>
+    <!-- <footer>
       <p>EventListner , Copyright &copy;, 2022</p>
-    </footer>
+    </footer> -->
 
 <!-- Linked all JS -->
     <script src="./assets/js/getCity.js"></script>
     <script src="./assets/js/weather.js"></script>
   
+<!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> 
+
 </body>
 
 </html>
