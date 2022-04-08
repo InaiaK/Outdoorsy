@@ -22,7 +22,7 @@ var getData = function (key) {
             console.log(data);
         })
 }
-searchEl.addEventListener("click", formSubmitCity);
+// searchEl.addEventListener("click", formSubmitCity);
 
 function getapiInfo(city) {
     var apiResponse = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0&q=${city}&imperial`;

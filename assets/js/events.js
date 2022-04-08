@@ -8,6 +8,7 @@ const eventTypes = [
 ];
 
 var resultsEl = document.getElementById('result-content');
+var searchEl = document.getElementById('search-form');
 
 var getEvents = function (city, segmentName = '', radius = '&radius=30') {
     city = city.toLowerCase();
@@ -25,8 +26,8 @@ var getEvents = function (city, segmentName = '', radius = '&radius=30') {
             for (i = 0; i < eventList.length; i++) {
                 var event = eventList[i];
                 var name = event.name;
-                var timeTBA = event.dates.start.timeTBA;
-                var dateTime = timeTBA ? event.dates.start.localDate : event.dates.start.dateTime;
+                var date = event.dates.start.localDate;
+                date = moment(date, "MM-DD-YYYY");
                 var imgURL = event.images[0].url;
                 var eventURL = event.url;
                 var venueName = event._embedded.venues[0].name;
@@ -36,7 +37,7 @@ var getEvents = function (city, segmentName = '', radius = '&radius=30') {
                     var eventInfo = '';
                 }
 
-                console.log('event:',event,'name',name,'dateTime',dateTime,'imgURL', imgURL, 'eventURL', eventURL,'venueName', venueName,'eventInfo', eventInfo);
+                console.log('event:',event,'name',name,'date',date,'imgURL', imgURL, 'eventURL', eventURL,'venueName', venueName,'eventInfo', eventInfo);
 
                 var eventDiv = document.createElement('div');
 
@@ -47,7 +48,7 @@ var getEvents = function (city, segmentName = '', radius = '&radius=30') {
                 infoP.innerText = eventInfo;
 
                 var dateP = document.createElement('p');
-                dateP.innerText = dateTime;
+                dateP.innerText = date;
 
                 var venueP = document.createElement('p');
                 venueP.innerText = venueName;
@@ -64,6 +65,7 @@ var getEvents = function (city, segmentName = '', radius = '&radius=30') {
             }
         }).catch((error) => {
             console.error('Error:', error);
+            alert('Please enter a real city.');
           });
 }
 
