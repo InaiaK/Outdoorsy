@@ -126,7 +126,7 @@ header {
     }
 }
 
-@media screen and (max-width: 39.9375em) {
+@media screen and (max-width: 100%) {
     .topbar-responsive-links {
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
@@ -146,7 +146,7 @@ content is the same as results
 
 header is same, footer is the same*/
 section {
-    background: url(../img/denver1.webp) no-repeat 0 -400px url(../img/hockey1.jpeg) no-repeat 0 -400px url(../img/festival1.jpeg)no-repeat 0 -400px url(../img/theater.jpeg)no-repeat 0 -400px url(../img/showcase3.jpg) no-repeat 0 -400px;
+    background: url(../img/denver1.webp) no-repeat 0 -400px url(../img/hockey1.jpeg) no-repeat 0 -400px url(../img/festival1.jpeg) no-repeat 0 -400px url(../img/theater.jpeg) no-repeat 0 -400px url(../img/showcase3.jpg) no-repeat 0 -400px;
 
     color: white;
     width: 100%;
@@ -177,7 +177,7 @@ section {
 .container-results{
     grid-area: results;
     position: relative;
-  }
+};
 
 
 /* search bar  */
