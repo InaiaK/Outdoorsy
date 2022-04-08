@@ -45,9 +45,10 @@
           We're doomed!</p>
         <form id="search-form" class="form w-100">
           <div class="input-group input-group-rounded">
-            <input class="input-group-field" type="search">
+            <input class="input-group-field"  id="search-input"  type="text">
             <div class="input-group-button">
-              <input type="submit" class="button secondary" value="Search" id="search-input" class="form-input w-100">
+              <!--Changed name for button besides input-->
+              <button type="submit" class="button secondary" value="Search" class="form-input w-100"> Search</button>
             </div>
           </div>
         </form>
@@ -73,8 +74,13 @@
       <p>EventListner , Copyright &copy;, 2022</p>
     </footer> -->
 
+<!-- Linked all JS -->
+    <script src="./assets/js/getCity.js"></script>
+    <script src="./assets/js/weather.js"></script>
+  
 <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> 
+
 </body>
 
 </html>
