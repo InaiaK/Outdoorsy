@@ -1,54 +1,29 @@
-// Global Variables 
-// var searchEl = document.getElementById("search-form");
-// var inputEl = document.getElementById("search-input");
+
 var nameEl = document.getElementById("city-name");
 var currentTempEl = document.getElementById("temperature");
 
 // API 
 
 var apiKey = "NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0";
-var apiInfo = "http://dataservice.accuweather.com/locations/v1/cities/search";
-// cURL 
-// var apiResponse = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0&q=${city}&imperial`;
+var apiInfo = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0"
 
-
-//  Search city name;
-// var formSubmitCity = function (event) {
-//     event.preventDefault();
-
-//     var cityName = inputEl.value.trim();
-
-//     if (cityName) {
-//         getapiInfo(cityName);
-
-//         // nameEl.textContent = " ";
-//         inputEl.value = " ";
-//     } else {
-//         // alert("Please enter a city name");
-//         console.log("Please Enter cityname")
-//     }
-// };
-
-let cityName  = localStorage.getItem("city")
-console.log("city",cityName)
+let cityName = localStorage.getItem("city")
+console.log("city", cityName)
 getapiInfo(cityName);
+
 var getData = function (key) {
 
     var apiUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${key}?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0`
-
-
-        fetch(apiUrl)
-            .then(function (response) {
-                if (response.ok) {
-                 
-                    response.json()
-                }
-            }).then(function (data) {
-                console.log(data);
-              
-            })
+    fetch(apiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                response.json()
+            }
+        }).then(function (data) {
+            console.log(apiUrl);
+        })
 }
-// searchEl.addEventListener("click", formSubmitCity);
+searchEl.addEventListener("click", formSubmitCity);
 
 function getapiInfo(city) {
     var apiResponse = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0&q=${city}&imperial`;
@@ -58,8 +33,9 @@ function getapiInfo(city) {
                 console.log(response);
                 response.json().then(function (data) {
                     console.log(data);
-                    let key=data[0].Key
-                   getData(key)
+                    let key = data[0].Key
+                    getData(key)
+                    var dailyWeather = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/34781?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0"
                     // var lat = data.coord.lat
                     // // var lon = data.coord.lon
                     // apiResponse(lat, lon, city)
@@ -75,4 +51,4 @@ function getapiInfo(city) {
             alert('Error: Please enter a City');
         });
 
-}
+
