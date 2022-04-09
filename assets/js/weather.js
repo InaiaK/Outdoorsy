@@ -19,7 +19,11 @@ var getData = function (key) {
 
             var dayHigh = forecast.Temperature.Maximum.Value;
             var dayLow = forecast.Temperature.Minimum.Value;
-            var icon = `https://developer.accuweather.com/sites/default/files/0${forecast.Day.Icon}-s.png`;
+            var iconNum = forecast.Day.Icon;
+            if (iconNum < 10) {
+                iconNum = `0${iconNum}`;
+            }
+            var icon = `https://developer.accuweather.com/sites/default/files/${iconNum}-s.png`;
 
             var iconEl = document.createElement('img');
             iconEl.setAttribute('src', icon);
