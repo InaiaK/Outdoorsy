@@ -38,7 +38,7 @@ var getData = function (key) {
 }
 
 function getapiInfo(city) {
-    var apiResponse = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0&q=${city}&imperial`;
+    var apiResponse = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=NAUqjqumgvHjOh22xdKhD5LXDAzGaHz0&q=${city}&imperial`;
     fetch(apiResponse)
         .then(function (response) {
             if (response.ok) {
