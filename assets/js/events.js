@@ -37,7 +37,7 @@ var getEvents = function (city, segmentName = '', radius = '&radius=30') {
                     var eventInfo = '';
                 }
 
-                console.log('event:',event,'name',name,'date',date,'imgURL', imgURL, 'eventURL', eventURL,'venueName', venueName,'eventInfo', eventInfo);
+                // console.log('event:',event,'name',name,'date',date,'imgURL', imgURL, 'eventURL', eventURL,'venueName', venueName,'eventInfo', eventInfo);
 
                 var eventDiv = document.createElement('div');
 
