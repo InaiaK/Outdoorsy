@@ -2,88 +2,116 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EventListner | Welcome</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/css/uikit.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventListner | Welcome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+        crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Roboto:wght@100&family=Yuji+Boku&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
-  <header>
-    <!-- nav bar used from foundation -->
-    <!-- <nav class="top-bar topbar-responsive">
-      <div class="top-bar-title">
-        <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
-          <button class="menu-icon" type="button" data-toggle></button>
-        </span>
-        <a class="topbar-responsive-logo" href="#"><strong class="branding">EventListner</strong></a>
-      </div>
-      <div id="topbar-responsive" class="topbar-responsive-links">
-        <div class="top-bar-right">
-          <ul class="menu simple vertical medium-horizontal">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">History</a></li>
-            <li>
-              <button type="button" class="button hollow topbar-responsive-button">Categories</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-    <!-- container for search bar used from foundation -->
-    <section class="showcase">
-      <div class="container">
-
-        <h1 class="container-header">Whats the next Event?</h1>
-        <p>Did you hear that? They've shut down the main reactor. We'll be destroyed for sure. This is madness!
-          We're doomed!</p>
-        <form id="search-form" class="form w-100">
-          <div class="input-group input-group-rounded">
-            <input class="input-group-field" id="search-input" type="text">
-            <div class="input-group-button">
-              <!--Changed name for button besides input-->
-              <button type="submit" class="button secondary" value="Search" class="form-input w-100"> Search</button>
+    <header>
+        <!-- Nav bar from foundation -->
+        <nav class="top-bar topbar-responsive">
+            <div class="top-bar-title">
+                <a class="topbar-responsive-logo" href="#"><strong class="branding">EventListner</strong></a>
             </div>
-          </div>
-        </form>
+            <div id="topbar-responsive" class="topbar-responsive-links">
+                <div class="top-bar-right">
+                    <ul class="menu simple vertical medium-horizontal">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">History</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Bar Container -->
+        <section class="showcase">
+            <div class="container">
+
+                <h1 class="container-header">Whats the next Event?</h1>
+                <br>
+                <p>Did you hear that? They've shut down the main reactor. We'll be destroyed for sure. This is madness!
+                    We're doomed!</p>
+                <form id="search-form" class="form w-100">
+                    <div class="input-group input-group-rounded">
+                        <input class="input-group-field" id="search-input" type="text">
+                        <div class="input-group-button">
+                            <button type="submit" class="button secondary" value="Search" class="form-input w-100"> Search</button>
+                        </div>
+                    </div>
+                </form>
+        </section>
+        <!-- Animated Carousel Container -->
+    <section>
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <img src="./assets/img/hockey1.jpeg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+                <img src="./assets/img/festival1.jpeg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+                <img src="./assets/img/showcase3.jpg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+                <img src="./assets/img/denver1.webp" style="width:100%">
+
+            </div>
+            <div class="mySlides fade">
+                <img src="./assets/img/theater.jpeg" style="width:100%">
+
+            </div>
+            <div class="mySlides fade">
+                <img src="./assets/img/festival4.jpeg" style="width:100%">
+
+            </div>
+
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
     </section>
-    <script>
-      function changeBg() {
-        const images = [
-          'url(./assets/img/denver1.webp)',
-          'url(./assets/img/hockey1.jpeg)',
-          'url(./assets/img/festival1.jpeg)',
-          'url(./assets/img/theater.jpeg)',
-          'url(./assets/img/showcase3.jpg)'
 
-        ]
-        const section = document.querySelector('section')
-        const bg = images[Math.floor(Math.random() * images.length)];
-        section.style.backgroundImage = bg;
-      }
+        <!-- end of animated carousel -->
 
-      setInterval(changeBg, 5000)
-    </script>
-    <!-- <footer>
-      <p>EventListner , Copyright &copy;, 2022</p>
-    </footer> -->
+        <!-- footer -->
+        <footer>
+            <p>EventListner , Copyright &copy;, 2022</p>
+        </footer>
 
-    <!-- Linked all JS -->
-    <script src="./assets/js/script.js"></script>
-    <!-- <script src="./assets/js/getCity.js"></script> -->
-    <!-- <script src="./assets/js/weather.js"></script> -->
 
-    <!-- Compressed JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous">
-    </script>
+
+    
+        <script src="./assets/js/script.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </body>
 
